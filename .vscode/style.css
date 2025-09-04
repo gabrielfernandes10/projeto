@@ -1,3 +1,9 @@
+.light #switch button.animate {
+  transform: translateY(-50%) translateX(32px) rotate(360deg) scale(1.2);
+}
+body:not(.light) #switch button.animate {
+  transform: translateY(-50%) translateX(0) rotate(360deg) scale(1.2);
+}
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +20,7 @@
   --switch--bg-url: url(../assets/assets/moon-stars.svg);
 }
 
-.light {
+ :root.light {
   --text-color: black;
   --bg-url: url(../assets/assets/bg-desktop-light.jpg);
   --stroke-color: rgba(0, 0, 0, 0.5);
@@ -75,9 +81,13 @@ body * {
   top: 50%;
   z-index: 1;
   transform: translateY(-50%);
-  /* Melhorando a animação com transform em vez de right/left */
   left: 0;
-  transition: transform 0.3s ease-in-out;
+  transition: background 0.3s, transform 0.3s;
+}
+
+#switch button.animate {
+  transform: translateY(-50%) rotate(360deg) scale(1.2);
+}
 }
 
 /* Corrigindo a posição do botão - no modo light (sol) vai para a direita */
@@ -160,11 +170,10 @@ footer {
 @media (min-width: 700px) {
 
   :root {
-    --bg-url: url(.assets/assets/bg-desktop.jpg);
+    --bg-url: url(../assets/assets/bg-desktop.jpg);
   }
-  .light {
+  :root.light {
     --bg-url: url(../assets/assets/bg-desktop-light.jpg);
-
-
+  }
 }
-}
+
