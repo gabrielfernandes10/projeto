@@ -26,6 +26,7 @@
 
 body {
   background: var(--bg-url) no-repeat top center / cover;
+  transition: background 0.5s, color 0.5s;
 }
 
 body * {
@@ -65,17 +66,29 @@ body * {
 #switch button {
   width: 32px;
   height: 32px;
-  background: white;
+  background: white var(--switch--bg-url) no-repeat center center;
+  background-size: 16px 16px;
   border: 0;
   border-radius: 50%;
   position: absolute;
   top: 50%;
   z-index: 1;
   transform: translateY(-50%);
-  /* Melhorando a animação com transform em vez de right/left */
+  transition: background 0.5s, transform 0.5s;
   left: 0;
-    transition: background 0.5s, transform 0.5s;
 }
+  
+  #switch button img {
+    transition: transform 0.5s;
+    width: 18px;
+    height: 18px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  #switch button.animate img {
+    transform: rotate(360deg) scale(1.2);
+  }
 
 /* Corrigindo a posição do botão - no modo light (sol) vai para a direita */
 .light #switch button {
@@ -97,16 +110,6 @@ body:not(.light) #switch button {
   -webkit-backdrop-filter: blur(4px);
   border-radius: 9999px;
 }
-  #switch button img {
-    transition: transform 0.5s;
-    width: 18px;
-    height: 18px;
-    display: block;
-    margin: 0 auto;
-  }
-  #switch button.animate img {
-    transform: rotate(360deg) scale(1.2);
-  }
 
 /* links */
 ul {
