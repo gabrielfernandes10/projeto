@@ -26,7 +26,6 @@
 
 body {
   background: var(--bg-url) no-repeat top center / cover;
-  transition: background 0.5s, color 0.5s;
 }
 
 body * {
@@ -74,21 +73,10 @@ body * {
   top: 50%;
   z-index: 1;
   transform: translateY(-50%);
-  transition: background 0.5s, transform 0.5s;
+  /* Melhorando a animação com transform em vez de right/left */
   left: 0;
+  transition: transform 0.3s ease-in-out;
 }
-  
-  #switch button img {
-    transition: transform 0.5s;
-    width: 18px;
-    height: 18px;
-    display: block;
-    margin: 0 auto;
-  }
-
-  #switch button.animate img {
-    transform: rotate(360deg) scale(1.2);
-  }
 
 /* Corrigindo a posição do botão - no modo light (sol) vai para a direita */
 .light #switch button {
